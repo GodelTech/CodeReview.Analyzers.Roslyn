@@ -16,7 +16,7 @@ RUN nuget install SonarAnalyzer.CSharp -Version 8.16.0.25740
 
 # Main image
 # Image used for analysis
-FROM mcr.microsoft.com/dotnet/sdk:5.0  
+FROM mcr.microsoft.com/dotnet/sdk:5.0.102-ca-patch-buster-slim
 
 ENV SOLUTION_FILE_PATH=""
 VOLUME /artifacts

@@ -5,10 +5,10 @@ The following issue may caused Roslyn analysis to stop. It's suggested to run th
  ```
 
 ```bash
-docker build -t godeltech/codereview.analyzers.roslyn:0.0.1 . 
-docker image tag godeltech/codereview.analyzers.roslyn:0.0.1 godeltech/codereview.analyzers.roslyn:latest
+docker build -t godeltech/codereview.analyzers.roslyn:0.0.2 . 
+docker image tag godeltech/codereview.analyzers.roslyn:0.0.2 godeltech/codereview.analyzers.roslyn:latest
 docker push godeltech/codereview.analyzers.roslyn:latest
-docker push godeltech/codereview.analyzers.roslyn:0.0.1
+docker push godeltech/codereview.analyzers.roslyn:0.0.2
 ```
 
 
