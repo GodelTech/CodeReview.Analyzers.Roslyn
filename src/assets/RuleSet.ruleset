@@ -2588,13 +2588,6 @@
     <!--Title        : "ValueTask" should be consumed correctly -->
     <!--Category     : Critical Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
-    <!--MessageFormat: Refactor this 'ValueTask' usage to consume the result only if the operation has completed successfully. -->
-    <!--Description  : ValueTask<TResult> was introduced in .NET Core 2.0 to optimize memory allocation when functions return their results synchronously. -->
-    <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-5034 -->
-    <Rule Id="S5034" Action="Warning" />
-    <!--Title        : "ValueTask" should be consumed correctly -->
-    <!--Category     : Critical Code Smell -->
-    <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
     <!--MessageFormat: Refactor this 'ValueTask' usage to consume it only once. -->
     <!--Description  : ValueTask<TResult> was introduced in .NET Core 2.0 to optimize memory allocation when functions return their results synchronously. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-5034 -->
