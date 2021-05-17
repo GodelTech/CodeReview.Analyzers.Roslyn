@@ -8,13 +8,6 @@
     <!--Description  : Shared naming conventions allow teams to collaborate efficiently. This rule checks whether or not method and property names are PascalCased. To reduce noise, two consecutive upper case characters are allowed unless they form the whole name. So, MyXMethod is compliant, but XM on its own is not. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-100 -->
     <Rule Id="S100" Action="Warning" />
-    <!--Title        : Method overrides should not change parameter defaults -->
-    <!--Category     : Critical Code Smell -->
-    <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
-    <!--MessageFormat: {0} the default parameter value {1}. -->
-    <!--Description  : Default arguments are determined by the static type of the object. If a default argument is different for a parameter in an overriding method, the value used in the call will be different when calls are made via the base or derived object, which may be contrary to developer expectations.  -->
-    <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1006 -->
-    <Rule Id="S1006" Action="Warning" />
     <!--Title        : Types should be named in PascalCase -->
     <!--Category     : Minor Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -22,6 +15,13 @@
     <!--Description  : Shared naming conventions allow teams to collaborate efficiently. This rule checks whether or not type names are using PascalCase. To reduce noise, two consecutive upper case characters are allowed unless they form the whole type name. So, MyXClass is compliant, but XC on its own is not. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-101 -->
     <Rule Id="S101" Action="Warning" />
+    <!--Title        : Method overrides should not change parameter defaults -->
+    <!--Category     : Critical Code Smell -->
+    <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
+    <!--MessageFormat: {0} the default parameter value {1}. -->
+    <!--Description  : Default arguments are determined by the static type of the object. If a default argument is different for a parameter in an overriding method, the value used in the call will be different when calls are made via the base or derived object, which may be contrary to developer expectations.  -->
+    <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1006 -->
+    <Rule Id="S1006" Action="Warning" />
     <!--Title        : Lines should not be too long -->
     <!--Category     : Major Code Smell -->
     <!--Custom Tags  : C#, MainSourceScope, TestSourceScope -->
@@ -42,14 +42,14 @@
     <!--MessageFormat: Remove this 'throw' statement. -->
     <!--Description  : If Finalize or an override of Finalize throws an exception, and the runtime is not hosted by an application that overrides the default policy, the runtime terminates the process immediately without graceful cleanup (finally blocks and finalizers are not executed). This behavior ensures process integrity if the finalizer cannot free or destroy resources. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1048 -->
-    <Rule Id="S1048" Action="Warning" />
+    <Rule Id="S1048" Action="Error" />
     <!--Title        : Tabulation characters should not be used -->
     <!--Category     : Minor Code Smell -->
     <!--Custom Tags  : C#, MainSourceScope, TestSourceScope -->
     <!--MessageFormat: Replace all tab characters in this file by sequences of white-spaces. -->
     <!--Description  : Developers should not need to configure the tab width of their text editors in order to be able to read source code. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-105 -->
-    <Rule Id="S105" Action="Warning" />
+    <Rule Id="S105" Action="Info" />
     <!--Title        : Standard outputs should not be used directly to log anything -->
     <!--Category     : Major Code Smell -->
     <!--Custom Tags  : C#, MainSourceScope -->
@@ -126,14 +126,14 @@
     <!--MessageFormat: Remove these redundant parentheses. -->
     <!--Description  : The use of parentheses, even those not required to enforce a desired order of operations, can clarify the intent behind a piece of code. But redundant pairs of parentheses could be misleading, and should be removed.  -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1110 -->
-    <Rule Id="S1110" Action="Warning" />
+    <Rule Id="S1110" Action="Info" />
     <!--Title        : Empty statements should be removed -->
     <!--Category     : Minor Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
     <!--MessageFormat: Remove this empty statement. -->
     <!--Description  : Empty statements, i.e. ;, are usually introduced by mistake, for example because: -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1116 -->
-    <Rule Id="S1116" Action="Warning" />
+    <Rule Id="S1116" Action="Info" />
     <!--Title        : Local variables should not shadow class fields -->
     <!--Category     : Major Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -175,7 +175,7 @@
     <!--MessageFormat: Remove the unnecessary Boolean literal(s). -->
     <!--Description  : Redundant Boolean literals should be removed from expressions to improve readability. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1125 -->
-    <Rule Id="S1125" Action="Warning" />
+    <Rule Id="S1125" Action="Info" />
     <!--Title        : Unused "using" should be removed -->
     <!--Category     : Minor Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -189,7 +189,7 @@
     <!--MessageFormat: Add a new line at the end of the file '{0}'. -->
     <!--Description  : Some tools work better when files end with an empty line. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-113 -->
-    <Rule Id="S113" Action="Warning" />
+    <Rule Id="S113" Action="Info" />
     <!--Title        : Track uses of "FIXME" tags -->
     <!--Category     : Major Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -210,7 +210,7 @@
     <!--MessageFormat: Remove the unused {0} {1} '{2}'. -->
     <!--Description  : private or internal types or private members that are never executed or referenced are dead code: unnecessary, inoperative code that should be removed. Cleaning out dead code decreases the size of the maintained codebase, making it easier to understand the program and preventing bugs from being introduced. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1144 -->
-    <Rule Id="S1144" Action="Info" />
+    <Rule Id="S1144" Action="Warning" />
     <!--Title        : Useless "if(true) {...}" and "if(false){...}" blocks should be removed -->
     <!--Category     : Major Bug -->
     <!--Custom Tags  : C#, MainSourceScope, TestSourceScope -->
@@ -224,7 +224,7 @@
     <!--MessageFormat: Remove this call to '{0}' or ensure it is really required. -->
     <!--Description  : Calling Environment.Exit(exitCode) or Application.Exit() terminates the process and returns an exit code to the operating system.. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1147 -->
-    <Rule Id="S1147" Action="Warning" />
+    <Rule Id="S1147" Action="Error" />
     <!--Title        : "switch case" clauses should not have too many lines of code -->
     <!--Category     : Major Code Smell -->
     <!--Custom Tags  : C#, MainSourceScope -->
@@ -245,7 +245,7 @@
     <!--MessageFormat: Refactor this code to not throw exceptions in finally blocks. -->
     <!--Description  : Throwing an exception from within a finally block will mask any exception which was previously thrown in the try or catch block, and the masked's exception message and stack trace will be lost. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1163 -->
-    <Rule Id="S1163" Action="Warning" />
+    <Rule Id="S1163" Action="Error" />
     <!--Title        : Empty arrays and collections should be returned instead of null -->
     <!--Category     : Major Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope -->
@@ -308,7 +308,7 @@
     <!--MessageFormat: Add curly braces around the nested statement(s) in this '{0}' block. -->
     <!--Description  : While not technically incorrect, the omission of curly braces can be misleading, and may lead to the introduction of errors during maintenance. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-121 -->
-    <Rule Id="S121" Action="Warning" />
+    <Rule Id="S121" Action="Info" />
     <!--Title        : "Equals" and the comparison operators should be overridden when implementing "IComparable" -->
     <!--Category     : Minor Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope -->
@@ -343,7 +343,7 @@
     <!--MessageFormat: Refactor the code in order to remove this break statement. -->
     <!--Description  : break; is an unstructured control flow statement which makes code harder to read. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1227 -->
-    <Rule Id="S1227" Action="Warning" />
+    <Rule Id="S1227" Action="Info" />
     <!--Title        : Floating point numbers should not be tested for equality -->
     <!--Category     : Major Bug -->
     <!--Custom Tags  : C#, MainSourceScope, TestSourceScope -->
@@ -357,14 +357,14 @@
     <!--MessageFormat: Remove this commented out code. -->
     <!--Description  : Programmers should not comment out code as it bloats programs and reduces readability. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-125 -->
-    <Rule Id="S125" Action="Warning" />
+    <Rule Id="S125" Action="Info" />
     <!--Title        : "if ... else if" constructs should end with "else" clauses -->
     <!--Category     : Critical Code Smell -->
     <!--Custom Tags  : C#, MainSourceScope, TestSourceScope -->
     <!--MessageFormat: Add the missing 'else' clause. -->
     <!--Description  : This rule applies whenever an if statement is followed by one or more else if statements; the final else if should be followed by an else statement. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-126 -->
-    <Rule Id="S126" Action="Warning" />
+    <Rule Id="S126" Action="Info" />
     <!--Title        : A "while" loop should be used instead of a "for" loop -->
     <!--Category     : Minor Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -392,7 +392,7 @@
     <!--MessageFormat: Do not suppress issues. -->
     <!--Description  : This rule allows you to track the usage of the SuppressMessage attributes and #pragma warning disable mechanism. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1309 -->
-    <Rule Id="S1309" Action="Warning" />
+    <Rule Id="S1309" Action="Info" />
     <!--Title        : "switch/Select" statements should contain a "default/Case Else" clauses -->
     <!--Category     : Critical Code Smell -->
     <!--Custom Tags  : C#, MainSourceScope, TestSourceScope -->
@@ -406,7 +406,7 @@
     <!--MessageFormat: Make sure using this hardcoded IP address '{0}' is safe here. -->
     <!--Description  : Hardcoding IP addresses is security-sensitive. It has led in the past to the following vulnerabilities: -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1313 -->
-    <Rule Id="S1313" Action="Warning" />
+    <Rule Id="S1313" Action="Error" />
     <!--Title        : Control flow statements "if", "switch", "for", "foreach", "while", "do"  and "try" should not be nested too deeply -->
     <!--Category     : Critical Code Smell -->
     <!--Custom Tags  : C#, MainSourceScope, TestSourceScope -->
@@ -441,7 +441,7 @@
     <!--MessageFormat: Add or update the header of this file. -->
     <!--Description  : Each source file should start with a header stating file ownership and the license which must be used to distribute the application.  -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-1451 -->
-    <Rule Id="S1451" Action="Warning" />
+    <Rule Id="S1451" Action="None" />
     <!--Title        : "switch" statements should not have too many "case" clauses -->
     <!--Category     : Major Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -623,7 +623,7 @@
     <!--MessageFormat: Make sure hard-coded credential is safe. -->
     <!--Description  : Because it is easy to extract strings from an application source code or binary, credentials should not be hard-coded. This is particularly true for applications that are distributed or that are open-source. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-2068 -->
-    <Rule Id="S2068" Action="Warning" />
+    <Rule Id="S2068" Action="Error" />
     <!--Title        : SHA-1 and Message-Digest hash algorithms should not be used in secure contexts -->
     <!--Category     : Critical Vulnerability -->
     <!--Custom Tags  : C#, MainSourceScope -->
@@ -637,7 +637,7 @@
     <!--MessageFormat: Make sure that executing SQL queries is safe here. -->
     <!--Description  : Formatting strings used as SQL queries is security-sensitive. It has led in the past to the following vulnerabilities: -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-2077 -->
-    <Rule Id="S2077" Action="Warning" />
+    <Rule Id="S2077" Action="Error" />
     <!--Title        : Creating cookies without the "secure" flag is security-sensitive -->
     <!--Category     : Minor Security Hotspot -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, NotConfigurable -->
@@ -1646,7 +1646,7 @@
     <!--MessageFormat: Refactor this {0} so that the generic inheritance chain is not recursive. -->
     <!--Description  : Recursion is acceptable in methods, where you can break out of it. But with class types, you end up with code that will compile but not run if you try to instantiate the class. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-3464 -->
-    <Rule Id="S3464" Action="Warning" />
+    <Rule Id="S3464" Action="Error" />
     <!--Title        : Optional parameters should be passed to "base" calls -->
     <!--Category     : Major Bug -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -1751,7 +1751,7 @@
     <!--MessageFormat: Make this exception 'public'. -->
     <!--Description  : The point of having custom exception types is to convey more information than is available in standard types. But custom exception types must be public for that to work.  -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-3871 -->
-    <Rule Id="S3871" Action="Warning" />
+    <Rule Id="S3871" Action="Error" />
     <!--Title        : Parameter names should not duplicate the names of their methods -->
     <!--Category     : Minor Code Smell -->
     <!--Custom Tags  : C#, MainSourceScope, TestSourceScope -->
@@ -1807,7 +1807,7 @@
     <!--MessageFormat: Refactor the code to remove this use of '{0}'. -->
     <!--Description  : CoSetProxyBlanket and CoInitializeSecurity both work to set the permissions context in which the process invoked immediately after is executed. Calling them from within that process is useless because it's too late at that point; the permissions context has already been set. -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-3884 -->
-    <Rule Id="S3884" Action="Warning" />
+    <Rule Id="S3884" Action="Error" />
     <!--Title        : "Assembly.Load" should be used -->
     <!--Category     : Major Code Smell -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -2423,7 +2423,7 @@
     <!--MessageFormat: Use a key length of at least '{0}' bits. -->
     <!--Description  : When generating cryptograpic keys (or key pairs), it is important to use a key length that provides enough entropy against brute-force attacks. For the RSA algorithm the key should be at  -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-4426 -->
-    <Rule Id="S4426" Action="Warning" />
+    <Rule Id="S4426" Action="Error" />
     <!--Title        : "PartCreationPolicyAttribute" should be used with "ExportAttribute" -->
     <!--Category     : Major Bug -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
@@ -2437,7 +2437,7 @@
     <!--MessageFormat: Use a certified third party library implementing Galois/Counter Mode (GCM) instead. -->
     <!--Description  : Encryption algorithms can be used with various modes. Some combinations are not secured: -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-4432 -->
-    <Rule Id="S4432" Action="Warning" />
+    <Rule Id="S4432" Action="Error" />
     <!--Title        : LDAP connections should be authenticated -->
     <!--Category     : Critical Vulnerability -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope -->
@@ -2535,14 +2535,14 @@
     <!--MessageFormat: Make sure that encrypting data is safe here. -->
     <!--Description  : Encrypting data is security-sensitive. It has led in the past to the following vulnerabilities: -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-4787 -->
-    <Rule Id="S4787" Action="Warning" />
+    <Rule Id="S4787" Action="Error" />
     <!--Title        : Hashing data is security-sensitive -->
     <!--Category     : Critical Security Hotspot -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, NotConfigurable -->
     <!--MessageFormat: Make sure that hashing data is safe here. -->
     <!--Description  : Hashing data is security-sensitive. It has led in the past to the following vulnerabilities: -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-4790 -->
-    <Rule Id="S4790" Action="Warning" />
+    <Rule Id="S4790" Action="Error" />
     <!--Title        : Configuring loggers is security-sensitive -->
     <!--Category     : Critical Security Hotspot -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, NotConfigurable -->
@@ -2605,7 +2605,7 @@
     <!--MessageFormat: Use secure mode and padding scheme. -->
     <!--Description  : To perform secure cryptography, operation modes and padding scheme are essentials and should be used correctly according to the encryption algorithm: -->
     <!--HelpLinkUri  : https://rules.sonarsource.com/csharp/RSPEC-5542 -->
-    <Rule Id="S5542" Action="Warning" />
+    <Rule Id="S5542" Action="Error" />
     <!--Title        : Cipher algorithms should be robust -->
     <!--Category     : Critical Vulnerability -->
     <!--Custom Tags  : C#, SonarWay, MainSourceScope, TestSourceScope -->
