@@ -5,6 +5,7 @@ VOLUME /artifacts
 VOLUME /src
 
 RUN apk add --no-cache dos2unix
+RUN apk add --no-cache bash
 
 # convert run.sh file to unix format
 ADD ./assets/run.sh /user/local/bin/run.sh
