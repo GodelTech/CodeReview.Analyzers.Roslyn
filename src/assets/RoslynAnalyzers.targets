@@ -1,20 +1,24 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
   <Target Name="SetRoslynCodeAnalysisProperties" BeforeTargets="CoreCompile">
     <PropertyGroup>
       <RieRuleSetFilePath>/rulesets/RuleSet.ruleset</RieRuleSetFilePath>
     </PropertyGroup>
     <ItemGroup>
-      <RieAnalyzer Include="/packages/**/analyzers/*.dll" />
+      <RieAnalyzer Include="$(PkgSonarAnalyzer_CSharp)/analyzers/*.dll" />
     </ItemGroup>
+
     <PropertyGroup>
       <ErrorLog>$(TargetDir)$(TargetFileName).roslyn.json</ErrorLog>
       <ResolvedCodeAnalysisRuleSet>$(RieRuleSetFilePath)</ResolvedCodeAnalysisRuleSet>
     </PropertyGroup>
+
     <PropertyGroup>
       <WarningsAsErrors />
       <NoWarn />
       <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     </PropertyGroup>
+
     <ItemGroup>
       <Analyzer Remove="@(Analyzer)" />
       <Analyzer Include="@(RieAnalyzer)" />
