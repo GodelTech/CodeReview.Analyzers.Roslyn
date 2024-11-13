@@ -1,6 +1,6 @@
 # CodeReview.Analyzers.Roslyn
 
-NuGet: https://hub.docker.com/r/godeltech/codereview.analyzers.roslyn
+Docker image: https://hub.docker.com/r/godeltech/codereview.analyzers.roslyn
 
 ## Description
 
