@@ -4,7 +4,7 @@ NuGet: https://hub.docker.com/r/godeltech/codereview.analyzers.roslyn
 
 ## Description
 
-This project provides a Docker image to run Roslyn analyzers for code inspection.
+This project provides a Docker image to run [Roslyn](https://www.nuget.org/packages/sonaranalyzer.csharp) analyzers for code inspection.
 
 ## How to build the Docker Image
 
