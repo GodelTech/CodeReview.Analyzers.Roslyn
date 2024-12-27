@@ -1,21 +1,27 @@
-The following issue may caused Roslyn analysis to stop. It's suggested to run through the files and remove this parameter.
+# CodeReview.Analyzers.Roslyn
 
-```xml
- <NoWarn>$(NoWarn);1591</NoWarn>
- ```
+Docker image: https://hub.docker.com/r/godeltech/codereview.analyzers.roslyn
 
-```bash
-docker build -t godeltech/codereview.analyzers.roslyn:0.0.2 . 
-docker image tag godeltech/codereview.analyzers.roslyn:0.0.2 godeltech/codereview.analyzers.roslyn:latest
-docker push godeltech/codereview.analyzers.roslyn:latest
-docker push godeltech/codereview.analyzers.roslyn:0.0.2
-```
+## Description
 
+This project provides a Docker image to run [Roslyn](https://www.nuget.org/packages/sonaranalyzer.csharp) analyzers for code inspection.
 
-Here is better fix for this issue:
+## How to build the Docker Image
+
+To build the Docker image, run the following commands:
 
 ```bash
-dotnet build -property:NoWarn=""
+docker build -t godeltech/codereview.analyzers.roslyn:0.0.1 .
 ```
 
+## How to run the Docker Container
+
+To run the Docker container, use the following command:
+
+```bash
 docker run -v "/d/temp/src/ReviewItEasy.Orchestrator:/src" -v "/d/temp/artifacts:/artifacts" --env SOLUTION_FILE_PATH=/src/ReviewItEasy.Orchestrator.sln  -it --rm godeltech/codereview.analyzers.roslyn
+```
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
